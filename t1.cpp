@@ -2,6 +2,15 @@
 #include <fmt/core.h>
 #include <fmt/format.h>
 #include <cassert>
+#include <iostream>
+
+auto t1(){
+    std::string a="hi";
+    std::cout<<a[2]<<std::endl;
+    fmt::print("--\n");
+    fmt::print("size: {}, data: {}, c_str: {}, int(a[a.size()]): , a[2]: {}\n",a.size(), a.data(), a.c_str(), int(a[a.size()])), a[a.size()];
+}
+
 // check the char array is null terminated
 template <std::size_t N>
 constexpr bool is_null_terminated(const char (&arr)[N]) {
@@ -54,6 +63,7 @@ auto test_num_to_string(){
     fmt::print("{}\n", num_to_string(0x756E6547));
 }
 int main(){
+    t1();
     test_is_null_terminated();
     test_mem_buf();
     test_num_to_string();
